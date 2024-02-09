@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <set>
+#include <algorithm>
 
 
 /** Complete the setIntersection and setUnion functions below
@@ -11,22 +12,30 @@
  *  Both functions should run in time O(n*log(n)) and not O(n^2)
  */
 template <typename T>
+
+//Use .find()
 std::set<T> setIntersection(std::set<T>& s1, std::set<T>& s2)
 {
-
-
-
-
+  std::set<T> newSet = {};
+  for(T item : s1) {
+    if(s2.find(item) != s2.end()) {
+      newSet.insert(item);
+    }
+  }
+  return newSet;
 
 }
 template <typename T>
 std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)
 {
-
-
-
-
-
+  std::set<T> newSet = {};
+  for(T item : s1) {
+    newSet.insert(item);
+  }
+  for(T item : s2) {
+    newSet.insert(item);
+  }
+  return newSet;
 }
 
 /***********************************************/
